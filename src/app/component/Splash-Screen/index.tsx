@@ -9,9 +9,9 @@ export default function SplashScreen() {
   const [showSplash, setShowSplash] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [loading, setLoading] = useState(true);
+        
 
-  
-   useEffect(() => {
+  useEffect(() => {
     const hasSeenSplash = localStorage.getItem("hasSeenSplash");
     const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
 
@@ -41,6 +41,7 @@ export default function SplashScreen() {
 
   if (showSplash) {
     return (
+      <div>
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
         {/* top image */}
         <div className="absolute top-0 left-0">
@@ -66,6 +67,7 @@ export default function SplashScreen() {
             height={295}
           />
         </div>
+      </div>
       </div>
     );
   }
