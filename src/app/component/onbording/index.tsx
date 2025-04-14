@@ -9,7 +9,7 @@ import StepFour from "../Step/step4";
 export default function Onboarding() {
    const [step, setStep] = useState(0);
 
-  const steps = [<StepOne />, <StepTwo />, <StepThree />, <StepFour />];
+   const steps = [<StepOne />, <StepTwo />, <StepThree />, <StepFour />];
 
   const handleNext = () => {
     if (step < steps.length - 1) {
