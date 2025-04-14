@@ -19,7 +19,7 @@ export default function StepFour() {
         you just place the order, we do the rest
       </p>
 
-      <button
+       <button
         onClick={handleStart}
         className="bg-[#FF7622] h-[62px] w-[327px] text-white rounded-2xl relative top-[250]"
       >
