@@ -11,7 +11,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-2xl font-bold mb-6">Login</h1>
       <input
         type="text"
@@ -27,7 +27,7 @@ export default function LoginPage() {
         onClick={handleLogin}
         className="bg-[#FF7622] text-white py-2 px-6 rounded-lg"
       >
-        ورود
+        summit
       </button>
     </div>
   );
