@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default function StepFour() {
   const router = useRouter();
 
-  const handleStart = () => {
+   const handleStart = () => {
     localStorage.setItem("hasSeenOnboarding", "true");
     router.push("/login");
   };
