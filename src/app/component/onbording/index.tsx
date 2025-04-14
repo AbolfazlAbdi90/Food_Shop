@@ -44,7 +44,7 @@ export default function Onboarding() {
       </div>
 
       {/* دکمه‌ها */}
-      {step < steps.length - 1 ? (
+       {step < steps.length - 1 ? (
         <div className="flex flex-col items-center gap-4 mt-6 w-full relative ">
           <button
             className="bg-[#FF7622] w-[327px] h-[62px] rounded-[12px] text-white text-lg font-semibold relative top-[200]"
