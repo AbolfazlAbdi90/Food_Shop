@@ -10,7 +10,8 @@ export default function SplashScreen() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  
+   useEffect(() => {
     const hasSeenSplash = localStorage.getItem("hasSeenSplash");
     const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
 
@@ -43,7 +44,12 @@ export default function SplashScreen() {
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
         {/* top image */}
         <div className="absolute top-0 left-0">
-          <Image src="/image/Ellipse 1005.png" alt="Top Decoration" width={177} height={177} />
+          <Image
+            src="/image/Ellipse 1005.png"
+            alt="Top Decoration"
+            width={177}
+            height={177}
+          />
         </div>
 
         {/* وسط لوگو غذا */}
@@ -53,7 +59,12 @@ export default function SplashScreen() {
 
         {/* زیر لوگو */}
         <div className="absolute bottom-0 right-0">
-          <Image src="/image/Ellipse 1006.png" alt="Bottom Decoration" width={292} height={295} />
+          <Image
+            src="/image/Ellipse 1006.png"
+            alt="Bottom Decoration"
+            width={292}
+            height={295}
+          />
         </div>
       </div>
     );
@@ -63,4 +74,3 @@ export default function SplashScreen() {
 
   return <div>صفحه اصلی</div>;
 }
-
