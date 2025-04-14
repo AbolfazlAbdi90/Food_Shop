@@ -5,6 +5,7 @@ import Image from "next/image";
 import Onboarding from "../onbording";
 
 export default function SplashScreen() {
+  // state
   const [showSplash, setShowSplash] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [loading, setLoading] = useState(true);
