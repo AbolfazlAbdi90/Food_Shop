@@ -17,7 +17,7 @@ export default function Onboarding() {
     }
   };
 
-  const handleSkip = () => {
+   const handleSkip = () => {
     localStorage.setItem("hasSeenOnboarding", "true");
     window.location.href = "/login"; // انتقال به لاگین
   };
