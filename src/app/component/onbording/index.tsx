@@ -11,7 +11,7 @@ export default function Onboarding() {
 
    const steps = [<StepOne />, <StepTwo />, <StepThree />, <StepFour />];
 
-  const handleNext = () => {
+   const handleNext = () => {
     if (step < steps.length - 1) {
       setStep(step + 1);
     }
