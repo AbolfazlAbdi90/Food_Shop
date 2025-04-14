@@ -28,7 +28,7 @@ export default function Onboarding() {
        {steps[step]}
 
       {/* دایره‌های راهنما */}
-      <div
+       <div
         className={`flex gap-2 mt-6 relative ${
           step === steps.length - 1 ? "top-[-130px]" : "top-[-92px]"
         }`}
