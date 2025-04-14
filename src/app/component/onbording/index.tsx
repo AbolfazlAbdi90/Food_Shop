@@ -7,7 +7,7 @@ import StepThree from "../Step/step3";
 import StepFour from "../Step/step4";
 
 export default function Onboarding() {
-  const [step, setStep] = useState(0);
+   const [step, setStep] = useState(0);
 
   const steps = [<StepOne />, <StepTwo />, <StepThree />, <StepFour />];
 
