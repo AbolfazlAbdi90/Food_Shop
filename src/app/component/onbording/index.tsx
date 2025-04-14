@@ -25,7 +25,7 @@ export default function Onboarding() {
   return (
     <div className="flex flex-col justify-center items-center h-screen p-4">
       {/* برو اون مرحله‌ای رو نشون بده که شماره‌ش برابر با مقدار step هست */}
-      {steps[step]}
+       {steps[step]}
 
       {/* دایره‌های راهنما */}
       <div
