@@ -1,13 +1,13 @@
 "use client"
 
-import { useRouter } from "next/navigation";
+
 
 export default function StepFour() {
-  const router = useRouter();
+  
 
    const handleStart = () => {
     localStorage.setItem("hasSeenOnboarding", "true");
-    router.push("/login");
+    window.location.href = "/login"
   };
 
   return (
