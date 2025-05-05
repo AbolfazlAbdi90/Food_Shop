@@ -1,7 +1,8 @@
+import SplashScreen from "./component/Splash-Screen"
 
 
 export default function Home() {
-  return 
-
-  
+  return <div>
+    <SplashScreen />
+  </div>
 }

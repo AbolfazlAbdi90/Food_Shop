@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -64,9 +65,12 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <button className="text-[#FF7622] relative top-[-59px] left-[100px]">
+     <Link href="/Forgot-password">
+     <button className="text-[#FF7622] relative top-[-59px] left-[100px]">
         Forgot Password
       </button>
+     </Link>
+     
 
       <button
         onClick={handleLogin}
