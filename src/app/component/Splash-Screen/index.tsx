@@ -76,3 +76,5 @@ export default function SplashScreen() {
 
   return <div>صفحه اصلی</div>;
 }
+
+
