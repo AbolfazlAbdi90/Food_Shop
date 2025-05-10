@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-
 export default function SignUp() {
   const routerBack = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -25,149 +24,145 @@ export default function SignUp() {
   };
 
   return (
-    <div className="bg-[#121223] min-h-screen">
-      <Image
-        src="/image/Ellipse 1005 (1).png"
-        width={177}
-        height={177}
-        className="relative"
-        alt="image top of sign up"
-      />
-      <button
-        onClick={handleBack}
-        className="relative rounded-[100] bg-white h-[45px] w-[45px] top-[-90px] left-[24]"
-      >
+    <div className="bg-[#121223] min-h-screen flex flex-col items-center px-4 py-6">
+      {/* تصویر بالا */}
+      <div className="w-full max-w-xs flex justify-start ml-[-60]">
         <Image
-          src="/image/Back (1).png"
-          alt="Back"
-          width={10}
-          height={5}
-          className="relative right-[-16]"
+          src="/image/Ellipse 1005 (1).png"
+          width={177}
+          height={177}
+          alt="image top"
         />
-      </button>
-      <h1 className="text-white relative top-[-40] left-[131] text-[30px]">
-        Sign Up
-      </h1>
-      <p className="text-white relative top[-50px] left-[78.5] text-[16px]">
-        Please sign up to get started
-      </p>
+      </div>
 
+      {/* دکمه بازگشت */}
+      <div className="w-full max-w-xs flex justify-start mt-[-90px]">
+        <button
+          onClick={handleBack}
+          className="bg-white w-[45px] h-[45px] rounded-full flex items-center justify-center shadow"
+        >
+          <Image
+            src="/image/Back (1).png"
+            alt="Back"
+            width={10}
+            height={5}
+          />
+        </button>
+      </div>
+
+      {/* عنوان و توضیح */}
+      <h1 className="text-white text-[30px] mt-6">Sign Up</h1>
+      <p className="text-white text-[16px] mb-4">Please sign up to get started</p>
+
+      {/* فرم ثبت‌نام */}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full h-[579px] relative top-[49px] rounded-3xl bg-white"
+        className="bg-white mt-6 rounded-3xl w-full max-w-sm p-6 h-[35rem]"
       >
-        {/* NAME */}
-        <label
-          htmlFor="Name"
-          className="text-[13px] text-[#32343E] relative top-[44] left-[24]"
-        >
-          NAME
-        </label>
-        <input
-          type="text"
-          id="Name"
-          placeholder="john doe"
-          className="h-[62px] w-[327px] bg-[#F0F5FA] relative top-[115] left-[-16] rounded-2xl pl-[20]"
-          {...register("name", { required: "Name is required" })}
-        />
-        {typeof errors.name?.message === "string" && (
-  <p className="...">{errors.name.message}</p>
-     )  }
-
-        {/* EMAIL */}
-        <label
-          htmlFor="EMAIL"
-          className="text-[13px] text-[#32343E] relative top-[134] left-[24]"
-        >
-          EMAIL
-        </label>
-        <input
-          type="email"
-          id="EMAIL"
-          placeholder="example@gmail.com"
-          className="h-[62px] w-[327px] bg-[#F0F5FA] relative top-[209] left-[-16] rounded-2xl pl-[20]"
-          {...register("email", {
-            required: "Email is required",
-            pattern: {
-              value: /^\S+@\S+\.\S+$/,
-              message: "Invalid email address",
-            },
-          })}
-        />
-        { typeof errors.email?.message === "string" && (
-          <p className="text-red-600 text-sm relative top-[215px] left-[24px]">
-            {errors.email.message}
-          </p>
-        )}
-
-        {/* PASSWORD */}
-        <label
-          htmlFor="password"
-          className="text-[13px] text-[#32343E] relative top-[244] left-[24]"
-        >
-          PASSWORD
-        </label>
+        {/* نام */}
         <div>
+          <label htmlFor="name" className="text-sm text-[#32343E]">NAME</label>
           <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            placeholder="**********"
-            className="relative left-[24] rounded-2xl pl-[20] top-[268] w-[327px] h-[62px] p-2 bg-[#F0F5FA]"
-            {...register("password", { required: "Password is required" })}
+            id="name"
+            type="text"
+            placeholder="john doe"
+            className="w-full h-[52px] mt-1 rounded-2xl bg-[#F0F5FA] px-4 outline-none"
+            {...register("name", { required: "Name is required" })}
           />
-          <Image
-            className="relative top-[230] right-[-278]"
-            src="/image/Group (1).png"
-            alt="show password"
-            width={24}
-            height={24}
-            onClick={() => setShowPassword((prev) => !prev)}
-          />
+          {errors.name?.message === "string" && (
+            <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>
+          )}
         </div>
-        { typeof errors.password?.message ==="number" && (
-          <p className="text-red-600 text-sm relative top-[270px] left-[24px]">
-            {errors.password.message}
-          </p>
-        )}
 
-        {/* RE-TYPE PASSWORD */}
-        <label
-          htmlFor="retype-password"
-          className="text-[13px] text-[#32343E] relative top-[284] left-[24]"
-        >
-          Re-Type Password
-        </label>
+        {/* ایمیل */}
         <div>
+          <label htmlFor="email" className="text-sm text-[#32343E]">EMAIL</label>
           <input
-            type={showPassword ? "text" : "password"}
-            id="retype-password"
-            placeholder="**********"
-            className="relative left-[24] rounded-2xl pl-[20] top-[310] w-[327px] h-[62px] p-2 bg-[#F0F5FA]"
-            {...register("retypePassword", {
-              required: "Re-type Password is required",
-              validate: (value) =>
-                value === watch("password") || "Passwords do not match",
+            id="email"
+            type="email"
+            placeholder="example@gmail.com"
+            className="w-full h-[52px] mt-1 rounded-2xl bg-[#F0F5FA] px-4 outline-none"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+\.\S+$/,
+                message: "Invalid email address",
+              },
             })}
           />
-          <Image
-            className="relative top-[272] right-[-278]"
-            src="/image/Group (1).png"
-            alt="show password"
-            width={24}
-            height={24}
-            onClick={() => setShowPassword((prev) => !prev)}
-          />
+          {errors.email?.message === "string" && (
+            <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+          )}
         </div>
-        { typeof errors.retypePassword?.message === "number" && (
-          <p className="text-red-600 text-sm relative top-[315px] left-[24px]">
-            {errors.retypePassword.message}
-          </p>
-        )}
 
-        {/* SUBMIT */}
+        {/* رمز عبور */}
+        <div>
+          <label htmlFor="password" className="text-sm text-[#32343E]">PASSWORD</label>
+          <div className="relative">
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="**********"
+              className="w-full h-[52px] mt-1 rounded-2xl bg-[#F0F5FA] px-4 outline-none"
+              {...register("password", { required: "Password is required" })}
+            />
+            <Image
+              src={
+                showPassword ?
+                "/image/Group (1).png"
+              : "/image/eye-off-icon.png"
+              }
+              alt={showPassword ? "Hide password" : "Show password"}
+              width={24}
+              height={24}
+              className="absolute top-4 right-4 cursor-pointer"
+              onClick={() => setShowPassword((prev) => !prev)}
+            />
+          </div>
+          {errors.password?.message === "string" && (
+            <p className="text-red-600 text-sm mt-1">{errors.password.message}</p>
+          )}
+        </div>
+
+        {/* تکرار رمز عبور */}
+        <div>
+          <label htmlFor="retype-password" className="text-sm text-[#32343E]">RE-TYPE PASSWORD</label>
+          <div className="relative">
+            <input
+              id="retype-password"
+              type={showPassword ? "text" : "password"}
+              placeholder="**********"
+              className="w-full h-[52px] mt-1 rounded-2xl bg-[#F0F5FA] px-4 outline-none"
+              {...register("retypePassword", {
+                required: "Re-type Password is required",
+                validate: (value) =>
+                  value === watch("password") || "Passwords do not match",
+              })}
+            />
+            <Image
+              src={
+                showPassword ?
+                "/image/Group (1).png"
+              : "/image/eye-off-icon.png"
+              }
+              alt={showPassword ? "Hide password" : "Show password"}
+              width={24}
+              height={24}
+              className="absolute top-4 right-4 cursor-pointer"
+              onClick={() => setShowPassword((prev) => !prev)}
+            />
+          </div>
+          {errors.retypePassword?.message === "string" && (
+            <p className="text-red-600 text-sm mt-1">
+              {errors.retypePassword.message}
+            </p>
+          )}
+        </div>
+
+        {/* دکمه ثبت‌نام */}
         <button
           type="submit"
-          className="bg-[#FF7622] h-[62px] w-[327px] relative rounded-2xl text-white top-[360px] left-[24px]"
+          className="w-full h-[52px] bg-[#FF7622] text-white rounded-2xl mt-4"
         >
           SIGN UP
         </button>

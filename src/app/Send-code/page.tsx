@@ -21,38 +21,48 @@ export default function SendCode() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  bg-[#121223] min-h-screen">
+    <div className="flex flex-col items-center justify-start bg-[#121223] min-h-screen px-4 pt-10">
+      {/* آیکون بالا */}
+      <div className="w-full max-w-xs flex justify-start mb-[-40px] relative top-[-30] left-[-34]">
         <Image
-              src="/image/Ellipse 1005 (1).png"
-              width={177}
-              height={177}
-              className="relative top-[-0] left-[-100] "
-              alt="image top of sign up"
-            ></Image>
-      <button
-        onClick={handleBack}
-        className="relative rounded-[100] bg-white h-[45px] w-[45px] top-[-100px] left-[-144]"
-      >
-        <Image
-          src="/image/Back (1).png"
-          alt="Back"
-          width={10}
-          height={5}
-          className="relative right-[-16]"
+          src="/image/Ellipse 1005 (1).png"
+          width={177}
+          height={177}
+          alt="top icon"
         />
-      </button>
-      <h1 className="relative top-[-60] text-[30px] text-white">Verification</h1>
-      <p className="text-white relative top-[-50] text-[16px]">
-        We have sent a code to your email
-      </p>
-      <p className="text-white relative top-[-40px] text-[16px]">example@gmail.com</p>
-      <div className="w-full relative top-[13] bg-white h-[579] rounded-3xl">
-        <p className="relative text-[13px] text-[#32343E] top-[24] left-[34]">CODE</p>
-        <p className="relative text-[13px] text-[#32343E] top-[8] right-[-234]">
-          <strong> Resend</strong>
-        </p>
-        <p className="relative top-[-14.5] right-[-290]">in 50sec</p>
-        <div className="flex gap-4 relative top-[20] left-[54]">
+      </div>
+
+      {/* دکمه برگشت */}
+      <div className="w-full max-w-xs flex justify-start mt-[-90]">
+        <button
+          onClick={handleBack}
+          className="rounded-full bg-white h-[45px] w-[45px] flex items-center justify-center shadow"
+        >
+          <Image
+            src="/image/Back (1).png"
+            alt="Back"
+            width={10}
+            height={5}
+          />
+        </button>
+      </div>
+
+      {/* عنوان و توضیح */}
+      <h1 className="text-[30px] text-white mt-6">Verification</h1>
+      <p className="text-white text-[16px] mt-2">We have sent a code to your email</p>
+      <p className="text-white text-[16px] mb-4">example@gmail.com</p>
+
+      {/* فرم وارد کردن کد */}
+      <div className="bg-white mt-6 rounded-3xl w-full max-w-sm p-6 h-[35rem]">
+        <div className="flex justify-between items-center text-sm text-[#32343E]">
+          <p>CODE</p>
+          <div className="flex items-center gap-2">
+            <strong>Resend</strong>
+            <span className="text-xs">in 50sec</span>
+          </div>
+        </div>
+
+        <div className="flex justify-between mt-4">
           {code.map((digit, index) => (
             <input
               key={index}
@@ -65,7 +75,9 @@ export default function SendCode() {
           ))}
         </div>
       </div>
-      <button className="h-[62] bg-[#FF7622] w-[327] text-white rounded-2xl relative top-[-370] ">
+
+      {/* دکمه تایید */}
+      <button className="bg-[#FF7622] text-white rounded-2xl w-full max-w-xs h-[62px] mt-[-401] text-lg">
         Verify
       </button>
     </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useForm, FieldValues, FieldError } from "react-hook-form";
+import { useForm, FieldValues } from "react-hook-form";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,7 +21,6 @@ export default function LoginPage() {
   };
 
   const onSubmit = (data: FieldValues) => {
-    // برای تست ساده، فرض بر این است که رمز عبور باید برابر با "yourEmailPassword" باشد
     if (data.password !== "yourEmailPassword") {
       alert("Incorrect password");
       return;
@@ -30,47 +29,47 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-[#121223] min-h-screen">
-      <Image
-        src="/image/Ellipse 1005 (1).png"
-        width={177}
-        height={177}
-        className="relative top-[-0] left-[-100] "
-        alt="image top of sign up"
-      />
-      <button
-        onClick={handleBack}
-        className="relative rounded-[100] bg-white h-[45px] w-[45px] top-[-100px] left-[-144]"
-      >
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#121223] px-4">
+      <div className="relative w-full max-w-sm">
         <Image
-          src="/image/Back (1).png"
-          alt="Back"
-          width={10}
-          height={5}
-          className="relative right-[-16]"
+          src="/image/Ellipse 1005 (1).png"
+          width={177}
+          height={177}
+          className="absolute top-[-5] left-[-10]"
+          alt="image top of sign up"
         />
-      </button>
-      <h1 className="relative top-[-60] text-[30px] text-white">Log In</h1>
-      <p className="text-white relative top-[-50] text-[16px]">
+
+        <button
+          onClick={handleBack}
+          className="absolute top-4 left-4 rounded-full bg-white h-11 w-11 mt-[40] flex items-center justify-center"
+        >
+          <Image
+            src="/image/Back (1).png"
+            alt="Back"
+            width={10}
+            height={5}
+          />
+        </button>
+      </div>
+
+      <h1 className="mt-32 text-3xl text-white">Log In</h1>
+      <p className="text-white mt-2 text-base text-center">
         Please sign in to your existing account
       </p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white h-[579] rounded-3xl w-full relative top-[13px]"
+        className="bg-white mt-6 rounded-3xl w-full max-w-sm p-6 h-[35rem]"
       >
-        <div className="relative top-[100]">
-          <label
-            htmlFor="Email"
-            className="w-[43px] h-[16px] relative left-[24px] top-[-94px]"
-          >
+        <div className="mb-4">
+          <label htmlFor="Email" className="block text-gray-700 mb-1">
             Email
           </label>
           <input
             type="email"
             id="Email"
             placeholder="example@gmail.com"
-            className="z-10 p-2 mb-1 w-[327px] pl-[19] rounded-2xl h-[62px] bg-[#F0F5FA] relative top-[-37px] left-[-15px] "
+            className="w-full p-4 bg-[#F0F5FA] rounded-2xl"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -80,17 +79,14 @@ export default function LoginPage() {
             })}
           />
           {errors.email && (
-            <p className="text-red-600 text-sm relative left-[24px] top-[-25px]">
+            <p className="text-red-600 text-sm mt-1">
               {errors.email?.message as React.ReactNode}
             </p>
           )}
         </div>
 
-        <div className="mb-6 relative top-[-40]">
-          <label
-            htmlFor="password"
-            className="relative left-[24] top-[134] block text-sm mb-2 text-gray-700"
-          >
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700 mb-1">
             Password
           </label>
           <div className="relative">
@@ -98,58 +94,55 @@ export default function LoginPage() {
               type={showPassword ? "text" : "password"}
               id="password"
               placeholder="**********"
-              className="w-[327px] relative z-0 top-[148] left-[24] pl-[19] pt-[15] h-[62px] p-2 bg-[#F0F5FA] rounded-2xl"
+              className="w-full p-4 bg-[#F0F5FA] rounded-2xl"
               {...register("password", {
                 required: "Password is required",
               })}
             />
             <Image
-              className="absolute z-10 top-[174px] right-[60px] cursor-pointer"
-              src="/image/Group (1).png"
-              alt="آیکون نمایش رمز"
+              className="absolute top-4 right-4 cursor-pointer"
+              src={
+                showPassword
+                  ? "/image/Group (1).png"
+                  : "/image/eye-off-icon.png"
+              }
+              alt={showPassword ? "Hide password" : "Show password"}
               width={24}
               height={24}
               onClick={() => setShowPassword((prev) => !prev)}
             />
           </div>
           {errors.password && (
-            <p className="text-red-600 text-sm relative left-[24px] top-[155px]">
+            <p className="text-red-600 text-sm mt-1">
               {errors.password?.message as React.ReactNode}
             </p>
           )}
         </div>
 
-        <div className="flex relative top-[90]">
-          <input
-            type="checkbox"
-            className="rounded-2xl relative top-[20] left-[24]"
-          />
-          <p className="relative top-[20] left-[34] text-[#7E8A97] text-[13px]">
-            Remember me
-          </p>
+        <div className="flex items-center mb-4">
+          <input type="checkbox" className="mr-2" />
+          <p className="text-sm text-[#7E8A97]">Remember me</p>
         </div>
 
-        <Link
-          href="/Forgot-password"
-          className="relative top-[90px] left-[220px] text-[#FF7622]"
-        >
-          Forgot Password
-        </Link>
+        <div className="flex justify-end  mt-[-35px]">
+          <Link href="/Forgot-password" className="text-[#FF7622] text-sm">
+            Forgot Password
+          </Link>
+        </div>
 
         <button
           type="submit"
-          className="bg-[#FF7622] text-white py-2 px-6 rounded-2xl h-[62px] w-[327px] relative left-[24] top-[123px]"
+          className="bg-[#FF7622] h-[62px] text-white w-full py-3 rounded-2xl mb-4 mt-[50px]"
         >
           LOG IN
         </button>
-        <h2 className="relative top-[170px] left-[62px]">
-          Don’t have an account?
-        </h2>
-        <Link href="/Sign-up">
-          <button className="relative text-[#FF7622] top-[146px] left-[251]">
+
+        <div className="text-center">
+          <p className="text-sm ml-[-92px]">Don’t have an account?</p>
+          <Link href="/Sign-up" className="text-[#FF7622] text-sm relative top-[-22] ml-[140px]">
             Sign Up
-          </button>
-        </Link>
+          </Link>
+        </div>
       </form>
     </div>
   );
