@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SendCode() {
   const [code, setCode] = useState(["", "", "", ""]);
@@ -77,9 +78,15 @@ export default function SendCode() {
       </div>
 
       {/* دکمه تایید */}
-      <button className="bg-[#FF7622] text-white rounded-2xl w-full max-w-xs h-[62px] mt-[-401] text-lg">
-        Verify
-      </button>
+     <div className="flex justify-center items-center">
+  <Link href="/">
+    <button className="bg-[#FF7622] text-white rounded-2xl w-[400] max-w-xs h-[62px] text-lg relative top-[-400] w-[]">
+      Verify
+    </button>
+  </Link>
+</div>
+
+      
     </div>
   );
 }

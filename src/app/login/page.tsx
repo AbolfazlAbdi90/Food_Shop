@@ -9,6 +9,7 @@ import { useForm, FieldValues } from "react-hook-form";
 export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const {
     register,
@@ -20,13 +21,11 @@ export default function LoginPage() {
     router.back();
   };
 
-  const onSubmit = (data: FieldValues) => {
-    if (data.password !== "yourEmailPassword") {
-      alert("Incorrect password");
-      return;
-    }
-    router.push("/getLocation");
-  };
+ const onSubmit = (data: FieldValues) => {
+ 
+  localStorage.setItem("token", "sample-token");
+  router.push("/getLocation");
+};
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#121223] px-4">
@@ -43,12 +42,7 @@ export default function LoginPage() {
           onClick={handleBack}
           className="absolute top-4 left-4 rounded-full bg-white h-11 w-11 mt-[40] flex items-center justify-center"
         >
-          <Image
-            src="/image/Back (1).png"
-            alt="Back"
-            width={10}
-            height={5}
-          />
+          <Image src="/image/Back (1).png" alt="Back" width={10} height={5} />
         </button>
       </div>
 
@@ -119,12 +113,19 @@ export default function LoginPage() {
           )}
         </div>
 
+        {/* نمایش ارور لاگین (مثلا پسورد اشتباه) */}
+        {loginError && (
+          <p className="text-red-600 text-sm mb-4 text-center">
+            {loginError}
+          </p>
+        )}
+
         <div className="flex items-center mb-4">
           <input type="checkbox" className="mr-2" />
           <p className="text-sm text-[#7E8A97]">Remember me</p>
         </div>
 
-        <div className="flex justify-end  mt-[-35px]">
+        <div className="flex justify-end mt-[-35px]">
           <Link href="/Forgot-password" className="text-[#FF7622] text-sm">
             Forgot Password
           </Link>
@@ -139,7 +140,10 @@ export default function LoginPage() {
 
         <div className="text-center">
           <p className="text-sm ml-[-92px]">Don’t have an account?</p>
-          <Link href="/Sign-up" className="text-[#FF7622] text-sm relative top-[-22] ml-[140px]">
+          <Link
+            href="/Sign-up"
+            className="text-[#FF7622] text-sm relative top-[-22] ml-[140px]"
+          >
             Sign Up
           </Link>
         </div>
@@ -147,4 +151,3 @@ export default function LoginPage() {
     </div>
   );
 }
-

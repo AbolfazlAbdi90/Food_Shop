@@ -1,8 +1,25 @@
+
+
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import SplashScreen from "./component/Splash-Screen"
+export default function HomePage() {
+  const router = useRouter();
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login"); // یا هر صفحه‌ای که لاگین تو هست
+    }
+  }, []);
 
-export default function Home() {
-  return <div>
-    <SplashScreen />
-  </div>
+  return (
+    <div>
+      <h1>Welcome to Home Page</h1>
+      {/* محتویات صفحه فقط وقتی نمایش داده می‌شه که توکن وجود داشته باشه */}
+      <SplashScreen />
+    </div>
+  );
 }
