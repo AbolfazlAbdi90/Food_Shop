@@ -1,10 +1,8 @@
-
-
 "use client";
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import SplashScreen from "./component/Splash-Screen"
+import SplashScreen from "./component/Splash-Screen";
 export default function HomePage() {
   const router = useRouter();
 
@@ -17,8 +15,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Welcome to Home Page</h1>
-      {/* محتویات صفحه فقط وقتی نمایش داده می‌شه که توکن وجود داشته باشه */}
+     
       <SplashScreen />
     </div>
   );

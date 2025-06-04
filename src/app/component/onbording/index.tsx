@@ -36,7 +36,7 @@ export default function Onboarding() {
         {steps.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full transition-all relative top-[214] ${
+            className={`w-3 h-3 rounded-full transition-all relative top-[84] ${
               index === step ? "bg-[#FF7622] w-4 h-4" : "bg-gray-300"
             }`}
           />
@@ -47,12 +47,12 @@ export default function Onboarding() {
        {step < steps.length - 1 ? (
         <div className="flex flex-col items-center gap-4 mt-6 w-full relative ">
           <button
-            className="bg-[#FF7622] w-[327px] h-[62px] rounded-[12px] text-white text-lg font-semibold relative top-[200]"
+            className="bg-[#FF7622] w-[327px] h-[62px] rounded-[12px] text-white text-lg font-semibold relative top-[10]"
             onClick={handleNext}
           >
             Next
           </button>
-          <button className="text-gray-500 text-lg font-medium relative top-[230]" onClick={handleSkip}>
+          <button className="text-gray-500 text-lg font-medium relative top-[30]" onClick={handleSkip}>
             Skip
           </button>
         </div>
