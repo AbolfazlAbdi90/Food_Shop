@@ -15,7 +15,7 @@ export default function SplashScreen() {
     const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
 
     if (hasSeenSplash) {
-      setShowSplash(true);
+      setShowSplash(false);
       if (!hasSeenOnboarding) setShowOnboarding(true);
     } else {
       setTimeout(() => {
